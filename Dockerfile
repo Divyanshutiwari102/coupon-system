@@ -1,10 +1,10 @@
-FROM maven:3.9-eclipse-temurin-17 AS build
-WORKDIR /app
-COPY . .
-RUN mvn clean package -DskipTests
+# Use Maven image
+FROM maven:3.9-eclipse-temurin-17
 
-FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /app
-COPY --from=build /app/target/coupon-system.jar app.jar
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+
+# Copy all files
+COPY . .
+
+# Run the app directly, FORCING it to use your new App class
+CMD ["mvn", "spring-boot:run", "-Dspring-boot.run.main-class=com.anshumat.App"]
