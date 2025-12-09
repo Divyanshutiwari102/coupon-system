@@ -16,6 +16,7 @@
 
     <properties>
         <java.version>17</java.version>
+        <start-class>com.anshumat.App</start-class>
     </properties>
 
     <dependencies>
@@ -36,10 +37,14 @@
     </dependencies>
 
     <build>
+        <finalName>coupon-system</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.anshumat.App</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>
