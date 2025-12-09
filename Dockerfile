@@ -1,13 +1,10 @@
-# Stage 1: Build
-FROM maven:3.9-eclipse-temurin-17 AS build
-WORKDIR /app
-COPY . .
-RUN mvn clean package -DskipTests
+# Use a single stage with Maven pre-installed
+FROM maven:3.9-eclipse-temurin-17
 
-# Stage 2: Run
-FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /app
-# Copy the built jar (using wildcard to be safe)
-COPY --from=build /app/target/*.jar app.jar
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+
+# Copy all files
+COPY . .
+
+# Run the app directly using Maven (Bypasses JAR packaging issues)
+CMD ["mvn", "spring-boot:run"]
