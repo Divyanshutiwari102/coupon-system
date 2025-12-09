@@ -2,12 +2,12 @@
 FROM maven:3.9-eclipse-temurin-17 AS build
 WORKDIR /app
 COPY . .
+# Skip tests to speed up the build
 RUN mvn clean package -DskipTests
 
 # Stage 2: Run
 FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /app
-# Explicitly copy the correct jar file
 COPY --from=build /app/target/coupon-system.jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
