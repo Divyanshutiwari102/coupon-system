@@ -42,8 +42,4 @@ This service provides an in-memory coupon management system. It allows administr
     * **Email:** `hire-me@anshumat.org`
     * **Password:** `HireMe@2025!`
 
-## AI Usage Note
-I utilized AI tools (ChatGPT/Gemini) to assist with:
-* Generating the standard Spring Boot controller structure.
-* Debugging Dockerfile and Maven build configurations for deployment.
-* **Prompts used:** "How to deploy Spring Boot to Render", "Fix Maven ClassNotFoundException in Docker", "Generate Java POJO for Coupon JSON structure".
+
