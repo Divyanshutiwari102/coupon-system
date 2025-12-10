@@ -1,11 +1,12 @@
-# Use Maven image
-FROM maven:3.9-eclipse-temurin-17
-
+# Stage 1: Build
+FROM maven:3.9-eclipse-temurin-17 AS build
 WORKDIR /app
-
-# Copy all project files
 COPY . .
+RUN mvn clean package -DskipTests
 
-# RUN the app directly from source.
-# This compiles and starts the app in one step, bypassing the JAR error.
-CMD ["mvn", "spring-boot:run"]
+# Stage 2: Run
+FROM eclipse-temurin:17-jdk-jammy
+WORKDIR /app
+COPY --from=build /app/target/coupon-system.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]
