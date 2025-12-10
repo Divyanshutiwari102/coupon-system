@@ -2,25 +2,48 @@
 
 A REST-ful API to manage e-commerce coupons and determine the best applicable coupon for a specific user and cart configuration.
 
+## Live Demo
+**Base URL:** `https://coupon-system-divyanshu.onrender.com`
+*(Note: Root URL returns 404 by design. Please use the endpoints below.)*
+
 ## Project Overview
-[cite_start]This service provides an in-memory coupon management system[cite: 12]. It allows administrators to create coupons with complex eligibility rules and allows clients to query the "best" coupon available for a transaction.
+This service provides an in-memory coupon management system. It allows administrators to create coupons with complex eligibility rules and allows clients to query the "best" coupon available for a transaction based on user and cart attributes.
 
 ## Tech Stack
 * **Language:** Java 17
-* **Framework:** Spring Boot 3.2
+* **Framework:** Spring Boot 3.2.3
 * **Build Tool:** Maven
+* **Deployment:** Docker & Render
 * **Data Storage:** In-Memory (ConcurrentHashMap)
 
-## How to Run
-1.  **Prerequisites:** Java 17+, Maven.
-2.  **Clone:** `git clone <repo-url>`
+## How to Run Locally
+1.  **Prerequisites:** Java 17+, Maven installed.
+2.  **Clone:** `git clone https://github.com/Divyanshutiwari102/coupon-system.git`
 3.  **Run:** `mvn spring-boot:run`
-4.  **Test:** The server starts at `http://localhost:8080` (or the PORT defined by your cloud provider).
+4.  **Test:** The server starts at `http://localhost:8080`.
 
 ## API Endpoints
-* `POST /coupons`: Create a new coupon.
-* `POST /applicable-coupons`: Get the best coupon for a cart/user.
-* `POST /login`: Reviewer login endpoint.
+
+### 1. Create Coupon
+* **Endpoint:** `POST /coupons`
+* **Description:** Create a new coupon.
+
+### 2. Get Best Coupon
+* **Endpoint:** `POST /applicable-coupons`
+* **Description:** Get the best coupon for a specific cart and user.
+
+### 3. List Coupons
+* **Endpoint:** `GET /coupons`
+* **Description:** Fetch all available coupons.
+
+### 4. Reviewer Login
+* **Endpoint:** `POST /login`
+* **Credentials:**
+    * **Email:** `hire-me@anshumat.org`
+    * **Password:** `HireMe@2025!`
 
 ## AI Usage Note
-I utilized AI tools to assist in generating the standard Spring Boot controller structure and ensuring the JSON models aligned with the assignment requirements.
+I utilized AI tools (ChatGPT/Gemini) to assist with:
+* Generating the standard Spring Boot controller structure.
+* Debugging Dockerfile and Maven build configurations for deployment.
+* **Prompts used:** "How to deploy Spring Boot to Render", "Fix Maven ClassNotFoundException in Docker", "Generate Java POJO for Coupon JSON structure".
