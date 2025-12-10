@@ -42,4 +42,8 @@ This service provides an in-memory coupon management system. It allows administr
     * **Email:** `hire-me@anshumat.org`
     * **Password:** `HireMe@2025!`
 
-
+## Author
+**Divyanshu Tiwari**
+* **Email:** divyanshutiwari337@gmail.com
+* **GitHub:** [Divyanshutiwari102](https://github.com/Divyanshutiwari102)
+* **LinkedIn:** [Divyanshu](https://www.linkedin.com/in/divyanshu-tiwari-42b156289/)
